@@ -1,0 +1,10 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
+
+words: 你,我,他ß
+
+#随机找一个未使用的商品
+server:
+  port: ${PORT:${SERVER_PORT:0}}
