@@ -26,6 +26,15 @@ class ServiceInstanceRestController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+    
+    @Value(value = "${words}") private String words;
+
+    @RequestMapping("/info")
+    public String serviceInstancesByApplicationName() {
+        String[] wordArray = words.split(",");
+        int i = (int)Math.round(Math.random() * (wordArray.length - 1));
+        return wordArray[i];
+    }
 
     @RequestMapping("/service-instances/{applicationName}")
     public List<ServiceInstance> serviceInstancesByApplicationName(
